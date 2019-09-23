@@ -21,10 +21,6 @@
 
       elements:
       
-      
-###############################################
-############    Personal Sensor  ##############
-###############################################
 
           ### Battery Charging Circle Ashley ###
 
@@ -33,29 +29,20 @@
             - entity: sensor.ashley_charging
               state: "True"
               #state_not: "charging"
+              
           elements:
 
             - type: custom:circle-sensor-card
-              #tap_action:
-              #action: toggle
               entity: device_tracker.life360_ashley
               attribute: battery_charging
-              #attribute_max: battery_charging
-              #max: 100
-              #min: 0
               stroke_width: 0
               gradient: true
-              #units: '%'
               show_max: false
               font_style:
                 color: rgba(0,0,0,0.0)
-                # font-size: 1.5em
-                # text-shadow: '2px 2px black'
-                # font-family: 'Trebuchet MS'
               fill: rgba(0,0,0,0.0)
               color_stops:
                 0: rgba(0,0,0,0.0)
-                #50 : '#ffe600'
                 100: rgba(0,0,0,0.0)
               style:
                 top: 13%
@@ -63,15 +50,16 @@
                 width: 50px
                 height: 50px  
                 border-radius: 100px
-                #animation: ready 2s ease infinite;
-                #animation: rotation 2s infinite 
                 animation: shadow-pulse 1s infinite
 
                 ### End Conditions ###
+                
+#### Nothing after this line should be nested into the conditional card. Stop here and check your indentations ###
+
 
                 ### Home Status Ashley ###
 
-        - type: image
+        - type: image  ### Make sure that this is not nested under the conditional card ###
           entity: device_tracker.life360_ashley
           state_image: 
             home: /local/images/AshleyIcon.png
@@ -84,12 +72,9 @@
 
                 ### Battery Circle Ashley ###
 
-        - type: custom:circle-sensor-card
-          #tap_action:
-          #action: toggle
+        - type: custom:circle-sensor-card   ### Make sure this is not nested under the conditional card ###
           entity: device_tracker.life360_ashley
           attribute: battery
-          #attribute_max: battery_charging
           max: 100
           min: 0
           stroke_width: 17
@@ -98,9 +83,6 @@
           show_max: false
           font_style:
             color: rgba(0,0,0,0.0)
-            #font-size: 1.5em
-            #text-shadow: '2px 2px black'
-            #font-family: 'Trebuchet MS'
           fill: rgba(0,0,0,0.0)
           color_stops:
             0: '#ff0000'
