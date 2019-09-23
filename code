@@ -1,0 +1,115 @@
+- title: Home
+  panel: true
+  cards:
+    - type: picture-elements
+      image: /local/images/3840x216050p.png
+      style: |
+        ha-card { 
+          background-color: rgba(0,0,0,0.0);
+          height: 91%
+          }
+
+        @keyframes shadow-pulse {
+          0% {
+          box-shadow: 0 0 0 0px rgba(0, 255, 0, 0.2);
+          }
+          100% {
+          box-shadow: 0 0 0 35px rgba(0, 255, 0, 0);
+          }
+        }
+
+
+      elements:
+      
+      
+###############################################
+############    Personal Sensor  ##############
+###############################################
+
+          ### Battery Charging Circle Ashley ###
+
+        - type: conditional 
+          conditions:
+            - entity: sensor.ashley_charging
+              state: "True"
+              #state_not: "charging"
+          elements:
+
+            - type: custom:circle-sensor-card
+              #tap_action:
+              #action: toggle
+              entity: device_tracker.life360_ashley
+              attribute: battery_charging
+              #attribute_max: battery_charging
+              #max: 100
+              #min: 0
+              stroke_width: 0
+              gradient: true
+              #units: '%'
+              show_max: false
+              font_style:
+                color: rgba(0,0,0,0.0)
+                # font-size: 1.5em
+                # text-shadow: '2px 2px black'
+                # font-family: 'Trebuchet MS'
+              fill: rgba(0,0,0,0.0)
+              color_stops:
+                0: rgba(0,0,0,0.0)
+                #50 : '#ffe600'
+                100: rgba(0,0,0,0.0)
+              style:
+                top: 13%
+                left: 30%
+                width: 50px
+                height: 50px  
+                border-radius: 100px
+                #animation: ready 2s ease infinite;
+                #animation: rotation 2s infinite 
+                animation: shadow-pulse 1s infinite
+
+                ### End Conditions ###
+
+                ### Home Status Ashley ###
+
+        - type: image
+          entity: device_tracker.life360_ashley
+          state_image: 
+            home: /local/images/AshleyIcon.png
+            away: /local/images/AshleyIconBW.png
+          style:
+            top: 13%
+            left: 30%
+            width: 50px
+            height: 50px
+
+                ### Battery Circle Ashley ###
+
+        - type: custom:circle-sensor-card
+          #tap_action:
+          #action: toggle
+          entity: device_tracker.life360_ashley
+          attribute: battery
+          #attribute_max: battery_charging
+          max: 100
+          min: 0
+          stroke_width: 17
+          gradient: true
+          units: '%'
+          show_max: false
+          font_style:
+            color: rgba(0,0,0,0.0)
+            #font-size: 1.5em
+            #text-shadow: '2px 2px black'
+            #font-family: 'Trebuchet MS'
+          fill: rgba(0,0,0,0.0)
+          color_stops:
+            0: '#ff0000'
+            50 : '#ffe600'
+            100: '#009919'
+          style:
+            top: 13%
+            left: 30%
+            width: 60px
+            height: 60px
+
+
