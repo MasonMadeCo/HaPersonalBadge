@@ -6,5 +6,5 @@ Not Charging
 ![HA View](/image.png)
 
 
-Charging
-![Charging}(/chargingflash.mp4)
+
+
