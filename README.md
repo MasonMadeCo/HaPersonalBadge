@@ -3,7 +3,7 @@
 
 
 #### Not Charging
-![HA View](/image.png)
+![HA View](/ezgif.com-video-to-gif.gif)
 
 
 
